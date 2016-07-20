@@ -1,0 +1,80 @@
+1. persistence.xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+  
+
+  <persistence-unit name="CWPersistentUnit">
+    <!--provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/cw_connDS</jta-data-source>
+    <class>ru.filin.model.entity.shedule.SheduleItem</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes-->
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/cwDS</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="eclipselink.target-database"                   value="Oracle11"/>
+      <property name="eclipselink.target-server"                     value="WebLogic_10"/>
+      <!-- properties for oracle proxy -->
+      <!-- exclusive connection for user sessions -->
+      <property name="eclipselink.jdbc.exclusive-connection.mode"    value="Always"/>
+      <property name="eclipselink.jdbc.exclusive-connection.is-lazy" value="false"/>
+      <!-- default cache (false = isolated cache) -->
+      <property name="eclipselink.cache.shared.default"              value="false"/>
+      <!--property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/cw_connDS"/-->
+    </properties>
+  </persistence-unit>
+  <!--persistence-unit name="cw">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/cwDS</jta-data-source>
+    <class>ru.filin.model.SheduleItem2</class>
+    <class>ru.filin.model.SheduleItemItem2</class>
+    <properties>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/cwDS"/>
+    </properties>
+  </persistence-unit-->
+</persistence>
+
+на weblogic'е нужно настроить DataSource 127.0.0.1:7101/console
+
+в пред. примерах обратить внимание 
+1) <jta-data-source>jdbc/cwDS</jta-data-source> совпадает с  JNDI Name у Data Source
+2) у Data Source необходимо отметить Target, иначе приложение его не увидит
+
+
+3) пример EJB
+
+
+@Stateless(name = "SessionEJB", mappedName = "CW_App-Model-SessionEJB")
+public class SessionEJBBean /*implements SessionEJB, SessionEJBLocal*/  implements Serializable {
+  @Resource
+  SessionContext sessionContext;
+
+  @PersistenceContext(unitName = "CWPersistentUnit")
+  private EntityManager em;
+
+
+
+....
+  public List<SheduleItemEO> getSheduleItemFind4Week4CarWash( Integer idCarWash ) {
+      return em.createNativeQuery( SQL_SHEDULE_ITEM4WEEK, SheduleItemEO.class )
+               .setParameter ( "id_car_wash", idCarWash )  
+               .getResultList();
+  }
+
+
+.....
+
+  public SheduleItemEO saveSheduleItemEO(SheduleItemEO sheduleItemEO) {
+        if (sheduleItemEO.getIdSheduleItem() == null) {
+            em.persist(sheduleItemEO);
+            return sheduleItemEO;
+        } else
+            return em.merge(sheduleItemEO);
+  }
+
+
+
+}
