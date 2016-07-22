@@ -1,0 +1,419 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>GOODS_IN_ORDER</name>
+  <columns>
+    <column>
+      <name>ID_GOODS_IN_ORDER</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ID_GOODS_IN_ORDER</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ID_ORDER</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ID_ORDER</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ID_GOOD</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ID_GOOD</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>GOOD_AMOUNT</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GOOD_AMOUNT</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CUR_COST</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUR_COST</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>FK_GOODS_TO_GOODS_IN_ORDER</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ID_GOOD</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>GOODS_IN_ORDER</name>
+            <schemaName>AUTO_SHOP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>AUTO_SHOP</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FK_GOODS_TO_GOODS_IN_ORDER</name>
+            <childObjectNames>
+              <childObjectName>ID_GOOD</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PK_GOODS</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>GOODS</name>
+          <schemaName>AUTO_SHOP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>AUTO_SHOP</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>FK_ORDERS_TO_GOODS_IN_ORDER</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ID_ORDER</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>GOODS_IN_ORDER</name>
+            <schemaName>AUTO_SHOP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>AUTO_SHOP</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <onDeleteAction>NO_ACTION</onDeleteAction>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FK_ORDERS_TO_GOODS_IN_ORDER</name>
+            <childObjectNames>
+              <childObjectName>ID_ORDER</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PK_ORDERS</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ORDERS</name>
+          <schemaName>AUTO_SHOP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>AUTO_SHOP</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PK_GOODS_IN_ORDER</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ID_GOODS_IN_ORDER</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>GOODS_IN_ORDER</name>
+            <schemaName>AUTO_SHOP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>AUTO_SHOP</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>PK_GOODS_IN_ORDER</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>GOODS_IN_ORDER</name>
+          <schemaName>AUTO_SHOP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>AUTO_SHOP</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PK_GOODS_IN_ORDER</name>
+            <childObjectNames>
+              <childObjectName>ID_GOODS_IN_ORDER</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>PK_GOODS_IN_ORDER</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>ID_GOODS_IN_ORDER</expressionSource>
+          <orderType>ASC</orderType>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <name>ID_GOODS_IN_ORDER</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>PK_GOODS_IN_ORDER</name>
+                  <identifier class="java.math.BigDecimal">29834</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>GOODS_IN_ORDER</name>
+                    <identifier class="java.math.BigDecimal">29833</identifier>
+                    <schemaName>AUTO_SHOP</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>AUTO_SHOP</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PK_GOODS_IN_ORDER</name>
+            <identifier class="java.math.BigDecimal">29834</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>GOODS_IN_ORDER</name>
+              <identifier class="java.math.BigDecimal">29833</identifier>
+              <schemaName>AUTO_SHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>AUTO_SHOP</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <bufferMode>DEFAULT</bufferMode>
+            <freelistGroups>1</freelistGroups>
+            <freelists>1</freelists>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <maxExtent>0</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>SYSTEM</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+      </properties>
+      <reverse>false</reverse>
+      <schema>
+        <name>AUTO_SHOP</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">DB_AUTO_SHOP</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>GOODS_IN_ORDER</name>
+        <identifier class="java.math.BigDecimal">29833</identifier>
+        <schemaName>AUTO_SHOP</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <bufferMode>DEFAULT</bufferMode>
+        <freelistGroups>1</freelistGroups>
+        <freelists>1</freelists>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>0</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <percentUsed>40</percentUsed>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>SYSTEM</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleTableProperties</key>
+      <value class="oracle.javatools.db.ora.OracleTableProperties">
+        <parallelDegree>1</parallelDegree>
+        <tableCompression>NOCOMPRESS</tableCompression>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>AUTO_SHOP</name>
+  </schema>
+</table>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+  <persistence-unit name="Model">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/DB_AUTO_SHOPDS</jta-data-source>
+    <class>ru.gasp.autoshop.model.Orders</class>
+    <class>ru.gasp.autoshop.model.Sales</class>
+    <class>ru.gasp.autoshop.model.Users</class>
+    <class>ru.gasp.autoshop.model.Goods</class>
+    <class>ru.gasp.autoshop.model.GoodsInOrder</class>
+    <class>ru.gasp.autoshop.model.GoodGroup</class>
+    <properties>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/DB_AUTO_SHOPDS"/>
+    </properties>
+  </persistence-unit>
+</persistence>
